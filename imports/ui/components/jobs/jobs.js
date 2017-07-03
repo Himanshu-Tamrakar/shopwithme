@@ -1,17 +1,14 @@
 import angular from 'angular';
 import angularMeteor from 'angular-meteor';
-import template from './home.html';
+import template from './jobs.html';
 import uiRouter from '@uirouter/angularjs';
 import ngMaterial from 'angular-material';
 import {
-  Meteor
+    Meteor
 } from 'meteor/meteor';
-import {
-  Products
-} from '../../../api/products'
 
 
-class Home {
+class Jobs {
   constructor($scope, $reactive, $timeout, $state, $q) {
     'ngInject';
 
@@ -21,26 +18,13 @@ class Home {
     this.timeout = $timeout;
     this.state = $state;
 
-    $timeout(function() {
-      $('.carousel.carousel-slider').carousel({
-        fullWidth: true
-      });
-    }, 10);
-
-    $scope.headerImages = [
-      'https://lorempixel.com/800/400/food/1',
-      'https://lorempixel.com/800/400/food/2',
-      'https://lorempixel.com/800/400/food/3',
-      'https://lorempixel.com/800/400/food/4'
-    ]
-
   }
 
 
 }
 
 
-const name = 'home';
+const name = 'jobs';
 
 export default angular.module(name, [
   angularMeteor,
@@ -49,13 +33,13 @@ export default angular.module(name, [
 ]).component(name, {
   template,
   controllerAs: name,
-  controller: Home
+  controller: Jobs
 }).config(config);
 
 function config($stateProvider) {
   'ngInject';
-  $stateProvider.state('home', {
-    url: '/home',
-    template: '<home></home>'
+  $stateProvider.state('jobs', {
+    url: '/jobs',
+    template: '<jobs></jobs>'
   });
 }

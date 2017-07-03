@@ -1,17 +1,14 @@
 import angular from 'angular';
 import angularMeteor from 'angular-meteor';
-import template from './home.html';
+import template from './leisures.html';
 import uiRouter from '@uirouter/angularjs';
 import ngMaterial from 'angular-material';
 import {
   Meteor
 } from 'meteor/meteor';
-import {
-  Products
-} from '../../../api/products'
 
 
-class Home {
+class Leisures {
   constructor($scope, $reactive, $timeout, $state, $q) {
     'ngInject';
 
@@ -22,17 +19,10 @@ class Home {
     this.state = $state;
 
     $timeout(function() {
-      $('.carousel.carousel-slider').carousel({
-        fullWidth: true
+      $(document).ready(function() {
+        $('ul.tabs').tabs();
       });
     }, 10);
-
-    $scope.headerImages = [
-      'https://lorempixel.com/800/400/food/1',
-      'https://lorempixel.com/800/400/food/2',
-      'https://lorempixel.com/800/400/food/3',
-      'https://lorempixel.com/800/400/food/4'
-    ]
 
   }
 
@@ -40,7 +30,7 @@ class Home {
 }
 
 
-const name = 'home';
+const name = 'leisures';
 
 export default angular.module(name, [
   angularMeteor,
@@ -49,13 +39,13 @@ export default angular.module(name, [
 ]).component(name, {
   template,
   controllerAs: name,
-  controller: Home
+  controller: Leisures
 }).config(config);
 
 function config($stateProvider) {
   'ngInject';
-  $stateProvider.state('home', {
-    url: '/home',
-    template: '<home></home>'
+  $stateProvider.state('leisures', {
+    url: '/leisures',
+    template: '<leisures></leisures>'
   });
 }
