@@ -4,12 +4,15 @@ import template from './jobs.html';
 import uiRouter from '@uirouter/angularjs';
 import ngMaterial from 'angular-material';
 import {
-    Meteor
+  Meteor
 } from 'meteor/meteor';
+import {
+  CardObjects
+} from '../../../api/cardObjects'
 
 
 class Jobs {
-  constructor($scope, $reactive, $timeout, $state, $q) {
+  constructor($scope, $reactive, $timeout, $state, $q, $sce) {
     'ngInject';
 
     $reactive(this).attach($scope);
@@ -17,6 +20,18 @@ class Jobs {
     this.scope = $scope;
     this.timeout = $timeout;
     this.state = $state;
+
+    $scope.trustSrc = function(src) {
+      return $sce.trustAsResourceUrl(src);
+    }
+
+    this.helpers({
+      allOnlineJobsCardObjects() {
+        return CardObjects.find({
+          'type': 'online-job'
+        })
+      }
+    })
 
   }
 

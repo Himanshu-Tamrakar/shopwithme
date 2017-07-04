@@ -1,10 +1,10 @@
 import {
     Mongo
 } from 'meteor/mongo';
-export const HeaderImages = new Mongo.Collection('headerImages');
+export const Images = new Mongo.Collection('images');
 
 //Make it all for only Admin can perform insert, update, remove
-HeaderImages.allow({
+Images.allow({
     insert(userId, party) {
         return true;
     },

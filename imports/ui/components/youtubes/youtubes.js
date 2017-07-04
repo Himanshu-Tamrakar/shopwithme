@@ -6,10 +6,13 @@ import ngMaterial from 'angular-material';
 import {
   Meteor
 } from 'meteor/meteor';
+import {
+  CardObjects
+} from '../../../api/cardObjects'
 
 
 class YouTubes {
-  constructor($scope, $reactive, $timeout, $state, $q) {
+  constructor($scope, $reactive, $timeout, $state, $q, $sce) {
     'ngInject';
 
     $reactive(this).attach($scope);
@@ -18,11 +21,19 @@ class YouTubes {
     this.timeout = $timeout;
     this.state = $state;
 
-    $timeout(function() {
-      $(document).ready(function() {
-        $('ul.tabs').tabs();
-      });
-    }, 10);
+    $scope.trustSrc = function(src) {
+      return $sce.trustAsResourceUrl(src);
+    }
+
+    this.helpers({
+      allYouTubeCardObjects() {
+        return CardObjects.find({
+          'type': 'youtube'
+        })
+      }
+    })
+
+
 
   }
 

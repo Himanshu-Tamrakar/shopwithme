@@ -1,25 +1,29 @@
 <div class="container row">
   <div class="col s12">
     <ul class="tabs">
-      <li class="tab col s2"><a href="#test1">Test 1</a></li>
-      <li class="tab col s2"><a href="#test2">Test 2</a></li>
+      <li class="tab col s2"><a href="#leisure-tamil-recipes">Leisure Recipes</a></li>
+      <li class="tab col s2"><a href="#leisure-jokes">Leisure Jokes</a></li>
       <li class="tab col s2"><a href="#test3">Test 3</a></li>
       <li class="tab col s2"><a href="#test4">Test 4</a></li>
       <li class="tab col s2"><a href="#test5">Test 5</a></li>
     </ul>
   </div>
-  <div id="test1" class="col s12">
-    <div class="">
-      <div class="row">
-        <div class="col s4 card">
+  <!-- First Tab Content //filter(leisures.allLeisuresCardObjects,'leisure-tamil-recipes')-->
+  <div id="leisure-tamil-recipes" class="col s12">
+    <div class="row container">
+      <div ng-repeat="object in leisures.allLeisuresCardObjects | filter:{ 'type': 'leisure-tamil-recipes' }" class="col s6">
+        <div class="card">
           <div class="card-image">
-            <div class="video-container">
-              <iframe src="https://www.youtube.com/embed/znukFtaWPAw" frameborder="0" allowfullscreen></iframe>
+            <div ng-show="object.urlType=='video'" class="video-container">
+              <iframe ng-src="{{trustSrc(object.url)}}" frameborder="0" allowfullscreen></iframe>
+            </div>
+            <div ng-show="object.urlType=='image'" class="video-container">
+              <img src="{{object.url}}">
             </div>
           </div>
-          <div class="card-content">
-            <span class="card-title">Card Title</span>
-            <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
+          <div style="height:150px" class="card-content">
+            <span class="card-title">{{object.name}}</span>
+            <p style="truncate">{{object.description}}</p>
           </div>
           <div class="card-action">
             <a href="#">This is a link</a>
@@ -28,8 +32,34 @@
       </div>
     </div>
   </div>
-  <div id="test2" class="col s12">Test 2</div>
+  <!-- Second Tab Content -->
+  <div id="leisure-jokes" class="col s12">
+    <div class="row container">
+      <div ng-repeat="object in leisures.allLeisuresCardObjects | filter:{ 'type': 'leisure-jokes' }" class="col s6">
+        <div class="card">
+          <div class="card-image">
+            <div ng-show="object.urlType=='video'" class="video-container">
+              <iframe ng-src="{{trustSrc(object.url)}}" frameborder="0" allowfullscreen></iframe>
+            </div>
+            <div ng-show="object.urlType=='image'" class="video-container">
+              <img src="{{object.url}}">
+            </div>
+          </div>
+          <div style="height:150px" class="card-content">
+            <span class="card-title">{{object.name}}</span>
+            <p style="truncate">{{object.description}}</p>
+          </div>
+          <div class="card-action">
+            <a href="#">This is a link</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Third Tab Content -->
   <div id="test3" class="col s12">Test 3</div>
+  <!-- Fourth Tab Content -->
   <div id="test4" class="col s12">Test 4</div>
+  <!-- Fifth Tab Content -->
   <div id="test5" class="col s12">Test 5</div>
 </div>

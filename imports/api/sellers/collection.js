@@ -1,10 +1,10 @@
 import {
     Mongo
 } from 'meteor/mongo';
-export const Discounts = new Mongo.Collection('discounts');
+export const Sellers = new Mongo.Collection('sellers');
 
 //Make it all for only Admin can perform insert, update, remove
-Discounts.allow({
+Sellers.allow({
     insert(userId, party) {
         return true;
     },
