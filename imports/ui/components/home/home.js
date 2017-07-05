@@ -24,21 +24,27 @@ class Home {
     this.timeout = $timeout;
     this.state = $state;
 
+
+    $scope.test = ["https://lorempixel.com/800/400/food/1","https://lorempixel.com/800/400/food/2","https://lorempixel.com/800/400/food/3"]
+
     this.helpers({
-      header() {
-        return Images.find({})
-      },
-      allProducts() {
-        return Products.find({})
-      }
-    })
-    // 
-    // $scope.filter = function(object, filerParam) {
-    //   var result = object.filter(function(obj) {
-    //     return obj.type == filerParam;
-    //   });
-    //   return result
-    // }
+        header() {
+          Images.find({'type': 'discount-image'}).forEach(function(object) {
+            $scope.test.push(object.imageUrl)
+          })
+          return Images.find({})
+        },
+        allProducts() {
+          return Products.find({})
+        }
+      })
+      //
+      // $scope.filter = function(object, filerParam) {
+      //   var result = object.filter(function(obj) {
+      //     return obj.type == filerParam;
+      //   });
+      //   return result
+      // }
 
 
     // $scope.headerImages = [

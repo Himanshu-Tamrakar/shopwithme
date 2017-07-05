@@ -2,8 +2,8 @@
   <div ng-repeat="object in home.allProducts" class="col s3">
     <div class="card">
       <img style="width:30px;height:30px;" class="responsive-img center" src="{{object.seller_image}}">
-      <div class="center card-image">
-        <img style="margin-left:30px;width:150px;height:140px;" class="responsive-img center" src="{{object.product_image}}">
+      <div class="card-image">
+        <img style="margin-left:30px;margin-right:30px;width:130px;height:130px;" class="responsive-img" src="{{object.product_image}}">
       </div>
       <div class="right" style="margin-right:10px;"> <i class="fa fa-shopping-cart"></i> Get Deal</div>
 
@@ -22,7 +22,6 @@
     </div>
   </div>
 </div>
-
 <div class="row container">
   <div ng-repeat="object in home.header | filter:{ 'type': 'discount-image' }" class="col s6">
     <div class="card">

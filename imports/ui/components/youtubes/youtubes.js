@@ -21,6 +21,8 @@ class YouTubes {
     this.timeout = $timeout;
     this.state = $state;
 
+    console.log("Youtube");
+
     $scope.trustSrc = function(src) {
       return $sce.trustAsResourceUrl(src);
     }

@@ -14,16 +14,7 @@ import {
 import {
   name as Home
 } from '../home/home';
-import {
-  name as Jobs
-} from '../jobs/jobs';
-import {
-  name as Leisures
-} from '../leisures/leisures';
 
-import {
-  name as YouTubes
-} from '../youtubes/youtubes';
 
 
 class ShopWithMe {
@@ -45,10 +36,7 @@ export default angular.module(name, [
   uiRouter,
   ngMaterial,
   Navigation,
-  Home,
-  Jobs,
-  Leisures,
-  YouTubes
+  Home
 ]).component(name, {
   template,
   controllerAs: name,
