@@ -1,10 +1,12 @@
 <div class="container">
-  <h5>All Questions and Answers</h5>
-  <ul class="collapsible popout" data-collapsible="accordion">
-    <li ng-repeat="object in questionAndAnswers.allQAndA">
-      <div ng-init="initialize()" ng-show="$index === 0"></div>
-      <div class="collapsible-header">Q.{{$index + 1}}: {{object.question}}</div>
-      <div class="collapsible-body"><span>{{object.answer}}</span></div>
-    </li>
-  </ul>
+    <div class='row'>
+        <h5>Frequently Asked Questions</h5>
+    </div>
+    <ul class="collapsible popout" data-collapsible="accordion">
+        <li ng-repeat="object in questionAndAnswers.allQAndA">
+            <div ng-init="initialize()" ng-show="$index === 0"></div>
+            <div class="collapsible-header">Q.{{$index + 1}}: {{object.question}}</div>
+            <div class="collapsible-body"><span>{{object.answer}}</span></div>
+        </li>
+    </ul>
 </div>

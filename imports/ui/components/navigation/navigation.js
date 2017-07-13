@@ -4,49 +4,58 @@ import ngMaterial from 'angular-material';
 import uiRouter from '@uirouter/angularjs';
 import template from './navigation.html';
 import {
-  name as Jobs
+    name as Jobs
 } from '../jobs/jobs';
 import {
-  name as Leisures
+    name as Leisures
 } from '../leisures/leisures';
 import {
-  name as YouTubes
+    name as YouTubes
 } from '../youtubes/youtubes';
 import {
-  name as QuestionAndAnswers
+    name as QuestionAndAnswers
 } from '../questionAndAnswers/questionAndAnswers';
 
 
 class Navigation {
-  constructor($scope, $reactive, $state, $timeout) {
-    'ngInject';
+    constructor($scope, $reactive, $state, $timeout) {
+        'ngInject';
+        $reactive(this).attach($scope);
 
-    $reactive(this).attach($scope);
+        $scope.activeMenu = $state.current.name;
 
-    this.scope = $scope;
-    this.state = $state;
+        $scope.isActive = function(menu) {
+            $scope.activeMenu = $state.current.name;
 
-    $timeout(function() {
-      $(".dropdown-button").dropdown();
-    }, 10);
+            if ($scope.activeMenu == menu) {
+                return true;
+            } else {
+                return false;
+            }
+        }
 
-  }
+        this.scope = $scope;
+        this.state = $state;
 
+        $timeout(function() {
+            $(".dropdown-button").dropdown();
+        }, 10);
+    }
 }
 
 const name = 'navigation';
 
 // Module
 export default angular.module(name, [
-  angularMeteor,
-  ngMaterial,
-  uiRouter,
-  Jobs,
-  Leisures,
-  YouTubes,
-  QuestionAndAnswers
+    angularMeteor,
+    ngMaterial,
+    uiRouter,
+    Jobs,
+    Leisures,
+    YouTubes,
+    QuestionAndAnswers
 ]).component(name, {
-  template,
-  controllerAs: name,
-  controller: Navigation
+    template,
+    controllerAs: name,
+    controller: Navigation
 });

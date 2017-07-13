@@ -1,5 +1,5 @@
 import {
-  Meteor
+    Meteor
 } from 'meteor/meteor';
 
 

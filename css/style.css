@@ -1,5 +1,6 @@
 html, body {
-  font-family: 'Lato', sans-serif display: flex;
+  font-family: 'Lato', sans-serif;
+  display: flex;
   flex-direction: column;
   overflow-x: hidden;
   min-height: 100vh;
@@ -7,4 +8,17 @@ html, body {
 
 main {
   flex: 1 0 auto;
+}
+
+#header-logo {
+  height: 40px;
+  margin: 12px 6px 12px 6px;
+  width: auto;
+}
+
+.trending-badge {
+  color: #FFFFFF;
+  background-color: #45B7CD;
+  border-radius: 2px;
+  padding: 3px 6px 3px 6px;
 }

@@ -4,58 +4,55 @@ import template from './questionAndAnswers.html';
 import uiRouter from '@uirouter/angularjs';
 import ngMaterial from 'angular-material';
 import {
-  Meteor
+    Meteor
 } from 'meteor/meteor';
 import {
-  QAS
-} from '../../../api/qas'
-
-
+    QAS
+} from '../../../api/qas';
 
 class QuestionAndAnswers {
-  constructor($scope, $reactive, $timeout, $state, $q) {
-    'ngInject';
+    constructor($scope, $reactive, $timeout, $state, $q) {
+        'ngInject';
 
-    $reactive(this).attach($scope);
+        $reactive(this).attach($scope);
 
-    this.scope = $scope;
-    this.timeout = $timeout;
-    this.state = $state;
+        this.scope = $scope;
+        this.timeout = $timeout;
+        this.state = $state;
 
-    $timeout(function() {
-      $(document).ready(function() {
-        $('.collapsible').collapsible();
-      });
-    }, 10);
+        $timeout(function() {
+            $(document).ready(function() {
+                $('.collapsible').collapsible();
+            });
+        }, 10);
 
-    $scope.initialize = function() {
-      $('.collapsible').collapsible('open', 0);
+        $scope.initialize = function() {
+            $('.collapsible').collapsible('open', 0);
+        }
+        this.helpers({
+            allQAndA() {
+                return QAS.find();
+            }
+        })
     }
-    this.helpers({
-      allQAndA() {
-        return QAS.find();
-      }
-    })
-  }
-
 }
 
 const name = 'questionAndAnswers';
 
 export default angular.module(name, [
-  angularMeteor,
-  uiRouter,
-  ngMaterial
+    angularMeteor,
+    uiRouter,
+    ngMaterial
 ]).component(name, {
-  template,
-  controllerAs: name,
-  controller: QuestionAndAnswers
+    template,
+    controllerAs: name,
+    controller: QuestionAndAnswers
 }).config(config);
 
 function config($stateProvider) {
-  'ngInject';
-  $stateProvider.state('questionAndAnswers', {
-    url: '/questionAndAnswers',
-    template: '<question-and-answers></question-and-answers>'
-  });
+    'ngInject';
+    $stateProvider.state('questionAndAnswers', {
+        url: '/faqs',
+        template: '<question-and-answers></question-and-answers>'
+    });
 }
