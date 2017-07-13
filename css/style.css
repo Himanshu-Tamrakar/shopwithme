@@ -4,6 +4,7 @@ html, body {
   flex-direction: column;
   overflow-x: hidden;
   min-height: 100vh;
+  background-image: url('background.png');
 }
 
 main {
@@ -21,4 +22,8 @@ main {
   background-color: #45B7CD;
   border-radius: 2px;
   padding: 3px 6px 3px 6px;
+}
+
+.tabs .indicator {
+  background-color: #607D8B;
 }
