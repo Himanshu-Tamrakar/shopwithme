@@ -1,11 +1,15 @@
 import angular from 'angular';
 import angularMeteor from 'angular-meteor';
-import template from './youtubes.html';
 import uiRouter from '@uirouter/angularjs';
 import ngMaterial from 'angular-material';
+
+import webTemplate from './youtubes.html';
+import mobileTemplate from './youtubes.mobile.html';
+
 import {
     Meteor
 } from 'meteor/meteor';
+
 import {
     CardObjects
 } from '../../../api/cardObjects'
@@ -20,8 +24,6 @@ class YouTubes {
         this.scope = $scope;
         this.timeout = $timeout;
         this.state = $state;
-
-        console.log("Youtube");
 
         $scope.trustSrc = function(src) {
             return $sce.trustAsResourceUrl(src);
@@ -39,6 +41,7 @@ class YouTubes {
 
 
 const name = 'youtubes';
+const template = Meteor.Device.isPhone() || Meteor.Device.isTablet() ? mobileTemplate : webTemplate;
 
 export default angular.module(name, [
     angularMeteor,

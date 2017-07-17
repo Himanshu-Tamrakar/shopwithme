@@ -1,0 +1,46 @@
+<div class="navbar-fixed">
+    <nav class='blue-grey darken-1'>
+        <div class='nav-wrapper'>
+            <div class='center-align center'>
+                <a ui-sref="home" class='black-text darken-4 brand-logo'><img id='header-logo' class='responsive-img' src='navigation-logo.png'></a>
+            </div>
+
+            <a style='color: white' href='' data-activates='mobile-demo' class='button-collapse' ng-init='initializeSidebar()'>
+                <i class='material-icons' style='font-size: 24px'>menu</i>
+            </a>
+
+            <ul class='side-nav' id='mobile-demo'>
+                <li ng-class='{"active":isActive("home")}'>
+                    <a ui-sref="home">Classic Deals</a>
+                </li>
+                <li ng-class='{"active":isActive("youtubes")}'>
+                    <a ui-sref="youtubes">YouTube</a>
+                </li>
+                <li ng-class='{"active":isActive("jobs")}'>
+                    <a ui-sref="jobs">Online Jobs</a>
+                </li>
+                <li ng-class='{"active":isActive("leisures")}'>
+                    <a ui-sref="leisures">Leisure</a>
+                </li>
+                <li ng-class='{"active":isActive("questionAndAnswers")}'>
+                    <a ui-sref="questionAndAnswers">FAQs</a>
+                </li>
+                <li>
+                    <div class='divider'></div>
+                </li>
+                <li>
+                    <a target="_blank" href="https://www.facebook.com/ShopWithMe.in/">Facebook</a>
+                </li>
+                <li>
+                    <a class="white-text darken-4"><i class="fa fa-twitter fa-1x" aria-hidden="true"></i></a>
+                </li>
+                <li>
+                    <a href="mobile.html">YouTube</a>
+                </li>
+                <li>
+                    <a href="mobile.html">Whatsapp</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</div>

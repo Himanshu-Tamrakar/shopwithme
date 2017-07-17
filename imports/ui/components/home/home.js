@@ -1,11 +1,15 @@
 import angular from 'angular';
 import angularMeteor from 'angular-meteor';
-import template from './home.html';
 import uiRouter from '@uirouter/angularjs';
 import ngMaterial from 'angular-material';
+
+import webTemplate from './home.html';
+import mobileTemplate from './home.mobile.html'
+
 import {
     Meteor
 } from 'meteor/meteor';
+
 import {
     Products
 } from '../../../api/products'
@@ -13,27 +17,24 @@ import {
     Images
 } from '../../../api/images'
 
-
 class Home {
     constructor($scope, $reactive, $timeout, $state, $q) {
         'ngInject';
-
         $reactive(this).attach($scope);
 
         this.scope = $scope;
         this.timeout = $timeout;
         this.state = $state;
 
-
-        $scope.test = ["https://lorempixel.com/800/400/food/1", "https://lorempixel.com/800/400/food/2", "https://lorempixel.com/800/400/food/3"]
+        // $scope.test = ["https://lorempixel.com/800/400/food/1", "https://lorempixel.com/800/400/food/2", "https://lorempixel.com/800/400/food/3"]
 
         this.helpers({
             header() {
-                Images.find({
-                    'type': 'discount-image'
-                }).forEach(function(object) {
-                    $scope.test.push(object.imageUrl)
-                })
+                // Images.find({
+                //     'type': 'discount-image'
+                // }).forEach(function(object) {
+                //     $scope.test.push(object.imageUrl)
+                // })
                 return Images.find({})
             },
             allProducts() {
@@ -61,6 +62,7 @@ class Home {
 
 
 const name = 'home';
+const template = Meteor.Device.isPhone() || Meteor.Device.isTablet() ? mobileTemplate : webTemplate;
 
 export default angular.module(name, [
     angularMeteor,

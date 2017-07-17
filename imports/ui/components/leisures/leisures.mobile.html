@@ -1,17 +1,17 @@
-<div class="container row">
+<div class="row">
     <div class="col s12">
         <ul class="tabs">
             <li class="tab col s3"><a class='blue-grey-text' href="#leisure-tamil-recipes">Cooking Recipes</a></li>
             <li class="tab col s3"><a class='blue-grey-text' href="#thamizhan-vlog">Thamizhan Vlog</a></li>
             <li class="tab col s3"><a class='blue-grey-text' href="#leisure-jokes">Memes</a></li>
-            <li class="tab col s3"><a class='blue-grey-text' href="#leisure-tricks">I-Tips & Tricks</a></li>
+            <li class="tab col s3"><a class='blue-grey-text' href="#leisure-photography">Photography</a></li>
         </ul>
     </div>
 
     <!-- First Tab Content -->
     <div id="leisure-tamil-recipes" class='col s12'>
         <div class="row">
-            <div ng-repeat="object in leisures.allLeisuresCardObjects | filter:{ 'type': 'leisure-cooking-recipes' }" class="col s6">
+            <div ng-repeat="object in leisures.allLeisuresCardObjects | filter:{ 'type': 'leisure-tamil-recipes' }" class="col s12" style="padding: 0">
                 <div class="card">
                     <div class="card-image">
                         <div ng-show="object.urlType=='video'" class="video-container">
@@ -32,7 +32,7 @@
     <!-- Second Tab Content -->
     <div id="leisure-jokes" class="col s12">
         <div class="row">
-            <div ng-repeat="object in leisures.allLeisuresCardObjects | filter:{ 'type': 'leisure-memes' }" class="col s4">
+            <div ng-repeat="object in leisures.allLeisuresCardObjects | filter:{ 'type': 'leisure-jokes' }" class="col s12" style="padding: 0">
                 <div class="card">
                     <div class="card-image">
                         <div ng-show="object.urlType=='image'" class="video-container">
@@ -47,27 +47,28 @@
             </div>
         </div>
     </div>
-    <div id="thamizhan-vlog" class='col s12'>
+    <!-- Third Tab Content -->
+    <div id="#leisure-photography" class="col s12">
         <div class="row">
-            <div ng-repeat="object in leisures.allLeisuresCardObjects | filter:{ 'type': 'leisure-thamizhan-vlog' }" class="col s6">
+            <div ng-repeat="object in leisures.allLeisuresCardObjects | filter:{ 'type': 'leisure-photography' }" class="col s12" style="padding: 0">
                 <div class="card">
                     <div class="card-image">
-                        <div ng-show="object.urlType=='video'" class="video-container">
-                            <iframe ng-src="{{trustSrc(object.url)}}" frameborder="0" allowfullscreen></iframe>
+                        <div ng-show="object.urlType=='image'" class="video-container">
+                            <img src="{{object.url}}">
                         </div>
                     </div>
-                    <div style="height: 175px" class="card-content">
+                    <div style="height:150px" class="card-content">
                         <span class="card-title">{{object.name}}</span>
-                        <p class="truncate">{{object.description}}</p>
+                        <p style="truncate">{{object.description}}</p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <!-- Fifth Tab Content-->
-    <div id="leisure-tricks" class='col s12'>
+    <!-- Fourth Tab Content-->
+    <div id="thamizhan-vlog" class='col s12'>
         <div class="row">
-            <div ng-repeat="object in leisures.allLeisuresCardObjects | filter:{ 'type': 'leisure-tricks' }" class="col s6">
+            <div ng-repeat="object in leisures.allLeisuresCardObjects | filter:{ 'type': 'thamizhan-vlog' }" class="col s12" style="padding: 0">
                 <div class="card">
                     <div class="card-image">
                         <div ng-show="object.urlType=='video'" class="video-container">

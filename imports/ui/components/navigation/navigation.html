@@ -1,10 +1,13 @@
 <div class="navbar-fixed">
     <nav class='blue-grey darken-1'>
-        <div class="nav-wrapper container">
+        <div class="nav-wrapper">
             <a ui-sref="home" class='black-text darken-4 brand-logo'><img id='header-logo' class='responsive-img' src='navigation-logo.png'></a>
             <ul class="right hide-on-med-and-down">
                 <li ng-class='{"active":isActive("home")}'>
                     <a class="white-text darken-4" ui-sref="home">Classic Deals</a>
+                </li>
+                <li ng-class='{"active":isActive("coupons")}'>
+                    <a class="white-text darken-4" ui-sref="coupons">Coupons</a>
                 </li>
                 <li ng-class='{"active":isActive("youtubes")}'>
                     <a class="white-text darken-4" ui-sref="youtubes">YouTube</a>

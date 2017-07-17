@@ -27,3 +27,7 @@ main {
 .tabs .indicator {
   background-color: #607D8B;
 }
+
+.navbar-fixed {
+  z-index: 9999;
+}

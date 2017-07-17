@@ -50,5 +50,5 @@ function config($locationProvider, $urlRouterProvider, $stateProvider) {
 
     $locationProvider.html5Mode(true);
 
-    $urlRouterProvider.otherwise('/home');
+    $urlRouterProvider.otherwise('/deals');
 }

@@ -1,0 +1,30 @@
+<div class="row">
+    <div ng-repeat="object in home.allProducts" class="col s6">
+        <div class="card">
+            <img style="width:30px; height:30px;" class="responsive-img center" src="{{object.seller_image}}">
+            <div class="card-image">
+                <img style="margin-left:30px; margin-right:30px; width:130px; height:130px;" class="responsive-img" src="{{object.product_image}}">
+            </div>
+            <div class="card-content grey lighten-3" style='padding-top: 5px'>
+                <div class=""><a class="truncate" href="">{{object.product_name}}</a></div>
+                <div>
+                    <p class="left grey-text">
+                        <strike>₹ {{object.actual_price}}</strike>
+                    </p>
+                    <p class="right">
+                        ₹ {{object.offer_price}}
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row container">
+    <div ng-repeat="object in home.header | filter:{ 'type': 'discount-image' }" class="col s6">
+        <div class="card">
+            <div class="card-image">
+                <img src="{{object.imageUrl}}">
+            </div>
+        </div>
+    </div>
+</div>

@@ -3,8 +3,8 @@ import angularMeteor from 'angular-meteor';
 import uiRouter from '@uirouter/angularjs';
 import ngMaterial from 'angular-material';
 
-import webTemplate from './leisures.html';
-import mobileTemplate from './leisures.mobile.html';
+import webTemplate from './coupons.html';
+import mobileTemplate from './coupons.mobile.html';
 
 import {
     Meteor
@@ -14,7 +14,7 @@ import {
     CardObjects
 } from '../../../api/cardObjects'
 
-class Leisures {
+class Coupons {
     constructor($scope, $reactive, $timeout, $state, $q, $sce) {
         'ngInject';
 
@@ -24,40 +24,22 @@ class Leisures {
         this.timeout = $timeout;
         this.state = $state;
 
-        $timeout(function() {
-            $(document).ready(function() {
-                $('ul.tabs').tabs();
-            });
-        }, 10);
-
         $scope.trustSrc = function(src) {
             return $sce.trustAsResourceUrl(src);
         }
 
-        // $scope.filter = function(object, query) {
-        //   var result = object.filter(function(obj) {
-        //     return obj.type == query;
-        //   });
-        //   return result
-        // }
-
         this.helpers({
-            allLeisuresCardObjects() {
+            allOnlineJobsCardObjects() {
                 return CardObjects.find({
-                    'type': {
-                        $nin: ['youtube', 'online-job']
-                    }
+                    'type': 'coupon'
                 })
             }
         })
-
     }
-
-
 }
 
 
-const name = 'leisures';
+const name = 'coupons';
 const template = Meteor.Device.isPhone() || Meteor.Device.isTablet() ? mobileTemplate : webTemplate;
 
 export default angular.module(name, [
@@ -67,13 +49,13 @@ export default angular.module(name, [
 ]).component(name, {
     template,
     controllerAs: name,
-    controller: Leisures
+    controller: Coupons
 }).config(config);
 
 function config($stateProvider) {
     'ngInject';
-    $stateProvider.state('leisures', {
-        url: '/leisures',
-        template: '<leisures></leisures>'
+    $stateProvider.state('coupons', {
+        url: '/coupons',
+        template: '<coupons></coupons>'
     });
 }
